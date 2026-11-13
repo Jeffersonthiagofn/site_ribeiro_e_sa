@@ -1,195 +1,161 @@
 ---
-// ProjectsSection.astro — Galeria editorial assimétrica com filtro interativo
+// ProjectsSection.astro — Galeria editorial assimétrica de Arquitetura de Interiores
+interface ProjectImage {
+  src: string;
+  alt: string;
+  badge: string;
+}
+
+interface InteriorProject {
+  id: string;
+  category: 'convivio' | 'integrados';
+  title: string;
+  meta: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+  images: [ProjectImage, ProjectImage];
+}
+
+const interiorProjects: InteriorProject[] = [
+  {
+    id: '01',
+    category: 'integrados',
+    title: 'Interiores Casa Pátio',
+    meta: 'Interiores · Estar, Jantar & Jardim Interno',
+    description:
+      'A transição fluida entre o jardim interno e a área social define este projeto de interiores, onde esquadrias pivotantes diluem o limite entre dentro e fora. Sob a laje de concreto aparente, o painel ripado em madeira e a parede de cobogós filtram a luz natural, compondo uma atmosfera acolhedora ao redor do mobiliário de linhas orgânicas e tons botânicos.',
+    ctaLabel: 'Consultar Projeto de Interiores',
+    ctaHref: '#contato',
+    images: [
+      {
+        src: '/assets/12.jpeg',
+        alt: 'Interiores Casa Pátio — Integração noturna entre o jardim interno e a sala de estar através de esquadrias pivotantes',
+        badge: '01 · Transição & Jardim',
+      },
+      {
+        src: '/assets/16.jpeg',
+        alt: 'Interiores Casa Pátio — Sala de jantar e estar com concreto aparente, painel ripado em madeira, cobogós e sofá curvo verde',
+        badge: '01 · Estar & Jantar',
+      },
+    ],
+  },
+  {
+    id: '02',
+    category: 'convivio',
+    title: 'Living & Jantar Sálvia',
+    meta: 'Interiores · Estar, Circulação & Sala de Jantar',
+    description:
+      'Articulado por um pórtico em arco e uma paleta suave em verde-sálvia, o projeto integra estar e sala de jantar com serenidade visual. O aquecimento do painel em madeira nogueira dialoga com a textura mineral da parede em pedra natural, o estofado em bouclé off-white e os detalhes em mármore verde, criando uma sequência espacial contínua e silenciosa.',
+    ctaLabel: 'Consultar Projeto de Interiores',
+    ctaHref: '#contato',
+    images: [
+      {
+        src: '/assets/14.jpeg',
+        alt: 'Living & Jantar Sálvia — Estar com painel em madeira nogueira, sofá em bouclé off-white, mesa em mármore verde e arco de transição',
+        badge: '02 · Living & Marcenaria',
+      },
+      {
+        src: '/assets/15.jpeg',
+        alt: 'Living & Jantar Sálvia — Vista através do pórtico em arco para a sala de jantar com mesa circular em madeira e parede em pedra natural',
+        badge: '02 · Pórtico & Jantar',
+      },
+    ],
+  },
+  {
+    id: '03',
+    category: 'integrados',
+    title: 'Living & Cozinha Terracota',
+    meta: 'Interiores · Cozinha Gourmet, Jantar & Estar',
+    description:
+      'Concebido para o convívio integrado, este projeto articula cozinha gourmet, jantar e estar em um único eixo fluido. As paredes em tom terracota envolvem o espaço com calor tátil, equilibradas pela bancada em mármore claro, pela marcenaria em madeira natural e pelo desenho orgânico do sofá curvo e da mesa de centro em pedra.',
+    ctaLabel: 'Consultar Projeto de Interiores',
+    ctaHref: '#contato',
+    images: [
+      {
+        src: '/assets/21.jpeg',
+        alt: 'Living & Cozinha Terracota — Perspectiva a partir da bancada em mármore integrando mesa de jantar sob pendente linear e sala de estar',
+        badge: '03 · Cozinha & Jantar',
+      },
+      {
+        src: '/assets/20.jpeg',
+        alt: 'Living & Cozinha Terracota — Sala de estar com sofá curvo orgânico, paredes em terracota e integração com a marcenaria da cozinha',
+        badge: '03 · Estar Integrado',
+      },
+    ],
+  },
+];
 ---
 
 <!-- ==========================================================================
-     SEÇÃO 02 — PROJETOS SELECIONADOS (VALORIZAÇÃO VISUAL ELYSIAN)
+     SEÇÃO 02 — PROJETOS DE INTERIORES (VALORIZAÇÃO VISUAL ELYSIAN)
      ========================================================================== -->
 <section class="section-shell" id="projetos">
   <header class="section-head-editorial">
     <div>
       <div class="section-tag reveal-fade" data-reveal-delay="0.1">
-        Portfólio Selecionado
+        Arquitetura de Interiores
       </div>
       <h2 class="section-title-large reveal-trigger" data-reveal-delay="0.2">
-        Obras & Ensaios
+        Interiores & Atmosferas
       </h2>
     </div>
     <p class="section-subtitle-editorial reveal-para" data-reveal-delay="0.3">
-      Uma seleção de projetos onde a fotografia arquitetônica revela a
-      integração entre contexto, geometria e bem-estar.
+      Uma seleção de projetos de interiores onde materialidade, luz e desenho
+      de ambientes se articulam para criar espaços de permanência, equilíbrio e
+      identidade.
     </p>
   </header>
 
-  <!-- Filtros de Categorias -->
+  <!-- Filtros de Categorias de Interiores -->
   <div
     class="filter-tabs reveal-fade"
     data-reveal-delay="0.15"
     role="tablist"
-    aria-label="Filtrar projetos"
+    aria-label="Filtrar projetos de interiores"
   >
     <button type="button" class="filter-btn is-active" data-filter="all"
       >Todos os Projetos</button
     >
-    <button type="button" class="filter-btn" data-filter="residencial"
-      >Residencial</button
+    <button type="button" class="filter-btn" data-filter="integrados"
+      >Ambientes Integrados</button
     >
-    <button type="button" class="filter-btn" data-filter="comercial"
-      >Espaços Criativos</button
+    <button type="button" class="filter-btn" data-filter="convivio"
+      >Estar & Convívio</button
     >
   </div>
 
-  <!-- Grade Editorial Assimétrica -->
+  <!-- Grade Editorial Assimétrica Agrupada por Projeto -->
   <div class="projects-editorial-grid" data-reveal-stagger="0.12">
-    <!-- Projeto 01 -->
-    <article class="project-item" data-category="residencial">
-      <div class="project-media-wrap">
-        <span class="project-overlay-badge">01 · Residencial</span>
-        <img
-          src="/assets/12.jpeg"
-          alt="Casa Monólito — Residência contemporânea em concreto e luz natural"
-          class="project-media-img"
-          loading="lazy"
-        />
-      </div>
-      <div class="project-info-row">
-        <h3 class="project-title">Casa Monólito</h3>
-        <span class="project-meta-mono">2024 · Litoral Norte, SP</span>
-      </div>
-      <p class="project-desc-short">
-        Massa escultórica de concreto que emoldura a vegetação nativa, criando
-        pátios protegidos dos ventos litorâneos.
-      </p>
-      <a href="#casos" class="project-link-action">
-        Ver Estudo de Caso <iconify-icon icon="solar:arrow-right-linear"
-        ></iconify-icon>
-      </a>
-    </article>
+    {
+      interiorProjects.map((project) => (
+        <article class="project-item" data-category={project.category}>
+          <div class="project-media-pair">
+            {project.images.map((image) => (
+              <div class="project-media-wrap">
+                <span class="project-overlay-badge">{image.badge}</span>
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  class="project-media-img"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
 
-    <!-- Projeto 02 -->
-    <article class="project-item" data-category="residencial">
-      <div class="project-media-wrap">
-        <span class="project-overlay-badge">02 · Residencial</span>
-        <img
-          src="/assets/16.jpeg"
-          alt="Pavilhão da Mata — Estrutura de madeira laminada e planos de vidro na serra"
-          class="project-media-img"
-          loading="lazy"
-        />
-      </div>
-      <div class="project-info-row">
-        <h3 class="project-title">Pavilhão da Mata</h3>
-        <span class="project-meta-mono">2023 · Serra da Mantiqueira, MG</span>
-      </div>
-      <p class="project-desc-short">
-        Plataforma leve elevada sobre o terreno acidentado, com beirais
-        calculados para capturar a luz suave de inverno.
-      </p>
-      <a href="#casos" class="project-link-action">
-        Ver Estudo de Caso <iconify-icon icon="solar:arrow-right-linear"
-        ></iconify-icon>
-      </a>
-    </article>
-
-    <!-- Projeto 03 -->
-    <article class="project-item" data-category="residencial">
-      <div class="project-media-wrap">
-        <span class="project-overlay-badge">03 · Residencial</span>
-        <img
-          src="/assets/14.jpeg"
-          alt="Residência Brisa — Pátio interno com espelho d'água e texturas minerais"
-          class="project-media-img"
-          loading="lazy"
-        />
-      </div>
-      <div class="project-info-row">
-        <h3 class="project-title">Residência Brisa</h3>
-        <span class="project-meta-mono">2024 · Trancoso, BA</span>
-      </div>
-      <p class="project-desc-short">
-        Paredes espessas de argamassa de cal e madeira recuperada organizadas ao
-        redor de um claustro d'água silencioso.
-      </p>
-      <a href="#contato" class="project-link-action">
-        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
-        ></iconify-icon>
-      </a>
-    </article>
-
-    <!-- Projeto 04 -->
-    <article class="project-item" data-category="comercial">
-      <div class="project-media-wrap">
-        <span class="project-overlay-badge">04 · Comercial</span>
-        <img
-          src="/assets/15.jpeg"
-          alt="Estúdio Galeria — Reuso adaptativo com iluminação zenital contínua"
-          class="project-media-img"
-          loading="lazy"
-        />
-      </div>
-      <div class="project-info-row">
-        <h3 class="project-title">Estúdio Galeria</h3>
-        <span class="project-meta-mono">2023 · São Paulo, SP</span>
-      </div>
-      <p class="project-desc-short">
-        Conversão de galpão fabril em espaço de trabalho e exibição, mantendo as
-        treliças aparentes sob claraboias contínuas.
-      </p>
-      <a href="#contato" class="project-link-action">
-        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
-        ></iconify-icon>
-      </a>
-    </article>
-
-    <!-- Projeto 05 -->
-    <article class="project-item" data-category="residencial">
-      <div class="project-media-wrap">
-        <span class="project-overlay-badge">05 · Residencial</span>
-        <img
-          src="/assets/21.jpeg"
-          alt="Casa dos Pátios — Transição contínua entre interior e paisagem externa"
-          class="project-media-img"
-          loading="lazy"
-        />
-      </div>
-      <div class="project-info-row">
-        <h3 class="project-title">Casa dos Pátios</h3>
-        <span class="project-meta-mono">2022 · Campinas, SP</span>
-      </div>
-      <p class="project-desc-short">
-        Sequência rítmica de jardins internos que desmaterializam a fronteira
-        entre salas de convívio e a mata regenerada.
-      </p>
-      <a href="#contato" class="project-link-action">
-        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
-        ></iconify-icon>
-      </a>
-    </article>
-
-    <!-- Projeto 06 -->
-    <article class="project-item" data-category="residencial">
-      <div class="project-media-wrap">
-        <span class="project-overlay-badge">06 · Residencial</span>
-        <img
-          src="/assets/20.jpeg"
-          alt="Refúgio da Pedra — Alvenaria ciclópica e grandes planos envidraçados"
-          class="project-media-img"
-          loading="lazy"
-        />
-      </div>
-      <div class="project-info-row">
-        <h3 class="project-title">Refúgio da Pedra</h3>
-        <span class="project-meta-mono">2023 · Petrópolis, RJ</span>
-      </div>
-      <p class="project-desc-short">
-        Pedras extraídas do próprio corte do terreno conformam a base maciça
-        sobre a qual repousam os dormitórios em madeira.
-      </p>
-      <a href="#contato" class="project-link-action">
-        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
-        ></iconify-icon>
-      </a>
-    </article>
+          <div class="project-info-row">
+            <h3 class="project-title">{project.title}</h3>
+            <span class="project-meta-mono">{project.meta}</span>
+          </div>
+          <p class="project-desc-short">{project.description}</p>
+          <a href={project.ctaHref} class="project-link-action">
+            {project.ctaLabel}{' '}
+            <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+          </a>
+        </article>
+      ))
+    }
   </div>
 </section>
 
@@ -221,9 +187,9 @@
   }
 
   .projects-editorial-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
   }
 
   .project-item {
@@ -235,8 +201,15 @@
       transform 0.25s ease;
   }
 
+  .project-media-pair {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px 48px;
+    margin-bottom: 24px;
+  }
+
   @media (min-width: 900px) {
-    .project-item:nth-child(even) {
+    .project-media-pair .project-media-wrap:nth-child(even) {
       margin-top: 80px;
     }
   }
@@ -247,7 +220,6 @@
     border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--surface-dark-2);
-    margin-bottom: 24px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   }
 
@@ -258,7 +230,7 @@
     transition: transform var(--transition-slow);
   }
 
-  .project-item:hover .project-media-img {
+  .project-media-wrap:hover .project-media-img {
     transform: scale(1.045);
   }
 
@@ -282,6 +254,8 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 16px;
     margin-bottom: 8px;
   }
 
@@ -310,7 +284,7 @@
     color: var(--text-muted-dark);
     line-height: 1.6;
     margin-bottom: 16px;
-    max-width: 480px;
+    max-width: 680px;
   }
 
   .project-link-action {
@@ -323,6 +297,7 @@
     text-transform: uppercase;
     color: var(--accent-bronze);
     transition: transform var(--transition-fast);
+    align-self: flex-start;
   }
 
   .project-item:hover .project-link-action {
@@ -331,11 +306,15 @@
 
   @media (max-width: 768px) {
     .projects-editorial-grid {
-      grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 56px;
     }
 
-    .project-item:nth-child(even) {
+    .project-media-pair {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .project-media-pair .project-media-wrap:nth-child(even) {
       margin-top: 0;
     }
   }
