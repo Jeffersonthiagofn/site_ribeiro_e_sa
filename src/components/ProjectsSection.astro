@@ -1,0 +1,342 @@
+---
+// ProjectsSection.astro — Galeria editorial assimétrica com filtro interativo
+---
+
+<!-- ==========================================================================
+     SEÇÃO 02 — PROJETOS SELECIONADOS (VALORIZAÇÃO VISUAL ELYSIAN)
+     ========================================================================== -->
+<section class="section-shell" id="projetos">
+  <header class="section-head-editorial">
+    <div>
+      <div class="section-tag reveal-fade" data-reveal-delay="0.1">
+        Portfólio Selecionado
+      </div>
+      <h2 class="section-title-large reveal-trigger" data-reveal-delay="0.2">
+        Obras & Ensaios
+      </h2>
+    </div>
+    <p class="section-subtitle-editorial reveal-para" data-reveal-delay="0.3">
+      Uma seleção de projetos onde a fotografia arquitetônica revela a
+      integração entre contexto, geometria e bem-estar.
+    </p>
+  </header>
+
+  <!-- Filtros de Categorias -->
+  <div
+    class="filter-tabs reveal-fade"
+    data-reveal-delay="0.15"
+    role="tablist"
+    aria-label="Filtrar projetos"
+  >
+    <button type="button" class="filter-btn is-active" data-filter="all"
+      >Todos os Projetos</button
+    >
+    <button type="button" class="filter-btn" data-filter="residencial"
+      >Residencial</button
+    >
+    <button type="button" class="filter-btn" data-filter="comercial"
+      >Espaços Criativos</button
+    >
+  </div>
+
+  <!-- Grade Editorial Assimétrica -->
+  <div class="projects-editorial-grid" data-reveal-stagger="0.12">
+    <!-- Projeto 01 -->
+    <article class="project-item" data-category="residencial">
+      <div class="project-media-wrap">
+        <span class="project-overlay-badge">01 · Residencial</span>
+        <img
+          src="/assets/12.jpeg"
+          alt="Casa Monólito — Residência contemporânea em concreto e luz natural"
+          class="project-media-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="project-info-row">
+        <h3 class="project-title">Casa Monólito</h3>
+        <span class="project-meta-mono">2024 · Litoral Norte, SP</span>
+      </div>
+      <p class="project-desc-short">
+        Massa escultórica de concreto que emoldura a vegetação nativa, criando
+        pátios protegidos dos ventos litorâneos.
+      </p>
+      <a href="#casos" class="project-link-action">
+        Ver Estudo de Caso <iconify-icon icon="solar:arrow-right-linear"
+        ></iconify-icon>
+      </a>
+    </article>
+
+    <!-- Projeto 02 -->
+    <article class="project-item" data-category="residencial">
+      <div class="project-media-wrap">
+        <span class="project-overlay-badge">02 · Residencial</span>
+        <img
+          src="/assets/16.jpeg"
+          alt="Pavilhão da Mata — Estrutura de madeira laminada e planos de vidro na serra"
+          class="project-media-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="project-info-row">
+        <h3 class="project-title">Pavilhão da Mata</h3>
+        <span class="project-meta-mono">2023 · Serra da Mantiqueira, MG</span>
+      </div>
+      <p class="project-desc-short">
+        Plataforma leve elevada sobre o terreno acidentado, com beirais
+        calculados para capturar a luz suave de inverno.
+      </p>
+      <a href="#casos" class="project-link-action">
+        Ver Estudo de Caso <iconify-icon icon="solar:arrow-right-linear"
+        ></iconify-icon>
+      </a>
+    </article>
+
+    <!-- Projeto 03 -->
+    <article class="project-item" data-category="residencial">
+      <div class="project-media-wrap">
+        <span class="project-overlay-badge">03 · Residencial</span>
+        <img
+          src="/assets/14.jpeg"
+          alt="Residência Brisa — Pátio interno com espelho d'água e texturas minerais"
+          class="project-media-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="project-info-row">
+        <h3 class="project-title">Residência Brisa</h3>
+        <span class="project-meta-mono">2024 · Trancoso, BA</span>
+      </div>
+      <p class="project-desc-short">
+        Paredes espessas de argamassa de cal e madeira recuperada organizadas ao
+        redor de um claustro d'água silencioso.
+      </p>
+      <a href="#contato" class="project-link-action">
+        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
+        ></iconify-icon>
+      </a>
+    </article>
+
+    <!-- Projeto 04 -->
+    <article class="project-item" data-category="comercial">
+      <div class="project-media-wrap">
+        <span class="project-overlay-badge">04 · Comercial</span>
+        <img
+          src="/assets/15.jpeg"
+          alt="Estúdio Galeria — Reuso adaptativo com iluminação zenital contínua"
+          class="project-media-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="project-info-row">
+        <h3 class="project-title">Estúdio Galeria</h3>
+        <span class="project-meta-mono">2023 · São Paulo, SP</span>
+      </div>
+      <p class="project-desc-short">
+        Conversão de galpão fabril em espaço de trabalho e exibição, mantendo as
+        treliças aparentes sob claraboias contínuas.
+      </p>
+      <a href="#contato" class="project-link-action">
+        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
+        ></iconify-icon>
+      </a>
+    </article>
+
+    <!-- Projeto 05 -->
+    <article class="project-item" data-category="residencial">
+      <div class="project-media-wrap">
+        <span class="project-overlay-badge">05 · Residencial</span>
+        <img
+          src="/assets/21.jpeg"
+          alt="Casa dos Pátios — Transição contínua entre interior e paisagem externa"
+          class="project-media-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="project-info-row">
+        <h3 class="project-title">Casa dos Pátios</h3>
+        <span class="project-meta-mono">2022 · Campinas, SP</span>
+      </div>
+      <p class="project-desc-short">
+        Sequência rítmica de jardins internos que desmaterializam a fronteira
+        entre salas de convívio e a mata regenerada.
+      </p>
+      <a href="#contato" class="project-link-action">
+        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
+        ></iconify-icon>
+      </a>
+    </article>
+
+    <!-- Projeto 06 -->
+    <article class="project-item" data-category="residencial">
+      <div class="project-media-wrap">
+        <span class="project-overlay-badge">06 · Residencial</span>
+        <img
+          src="/assets/20.jpeg"
+          alt="Refúgio da Pedra — Alvenaria ciclópica e grandes planos envidraçados"
+          class="project-media-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="project-info-row">
+        <h3 class="project-title">Refúgio da Pedra</h3>
+        <span class="project-meta-mono">2023 · Petrópolis, RJ</span>
+      </div>
+      <p class="project-desc-short">
+        Pedras extraídas do próprio corte do terreno conformam a base maciça
+        sobre a qual repousam os dormitórios em madeira.
+      </p>
+      <a href="#contato" class="project-link-action">
+        Consultar Tipologia <iconify-icon icon="solar:arrow-right-linear"
+        ></iconify-icon>
+      </a>
+    </article>
+  </div>
+</section>
+
+<style>
+  .filter-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-dark);
+    color: var(--text-muted-dark);
+    transition: all var(--transition-fast);
+  }
+
+  .filter-btn:hover,
+  .filter-btn.is-active {
+    color: var(--text-primary-dark);
+    border-color: var(--accent-bronze);
+    background: var(--surface-dark-2);
+  }
+
+  .projects-editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px 48px;
+  }
+
+  .project-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  @media (min-width: 900px) {
+    .project-item:nth-child(even) {
+      margin-top: 80px;
+    }
+  }
+
+  .project-media-wrap {
+    position: relative;
+    aspect-ratio: 4 / 4.8;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface-dark-2);
+    margin-bottom: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .project-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .project-item:hover .project-media-img {
+    transform: scale(1.045);
+  }
+
+  .project-overlay-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: rgba(18, 16, 14, 0.75);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary-dark);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-dark);
+  }
+
+  .project-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+
+  .project-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-primary-dark);
+    transition: color var(--transition-fast);
+  }
+
+  .project-item:hover .project-title {
+    color: var(--accent-bronze);
+  }
+
+  .project-meta-mono {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-subtle-dark);
+    letter-spacing: 0.05em;
+  }
+
+  .project-desc-short {
+    font-size: 0.875rem;
+    color: var(--text-muted-dark);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 480px;
+  }
+
+  .project-link-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-bronze);
+    transition: transform var(--transition-fast);
+  }
+
+  .project-item:hover .project-link-action {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .projects-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .project-item:nth-child(even) {
+      margin-top: 0;
+    }
+  }
+</style>

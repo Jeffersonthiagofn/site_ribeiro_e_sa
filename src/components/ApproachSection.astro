@@ -1,0 +1,112 @@
+---
+// ApproachSection.astro — Diretrizes conceituais e princípios de trabalho
+---
+
+<!-- ==========================================================================
+     SEÇÃO 04 — NOSSA ABORDAGEM (COMO PENSAMOS A ARQUITETURA)
+     ========================================================================== -->
+<section class="section-shell" id="abordagem">
+  <header class="section-head-editorial">
+    <div>
+      <div class="section-tag reveal-fade" data-reveal-delay="0.1">Diretrizes de Projeto</div>
+      <h2 class="section-title-large reveal-trigger" data-reveal-delay="0.2">Como Pensamos</h2>
+    </div>
+    <p class="section-subtitle-editorial reveal-para" data-reveal-delay="0.3">
+      Nossa forma de projetar parte de princípios que orientam cada escolha, da compreensão das necessidades à definição dos materiais e soluções construtivas.
+    </p>
+  </header>
+
+  <div class="principles-grid" data-reveal-stagger="0.12">
+    <article class="principle-card" data-spotlight>
+      <div class="principle-index">01 / Escuta</div>
+      <h3 class="principle-title">Antes de projetar, compreender</h3>
+      <p class="principle-text">
+        Cada projeto começa com uma escuta atenta. Buscamos conhecer a rotina, as preferências e as necessidades de cada cliente, compreendendo não apenas o que ele deseja, mas como pretende viver e utilizar cada espaço.
+      </p>
+    </article>
+
+    <article class="principle-card" data-spotlight>
+      <div class="principle-index">02 / Contexto</div>
+      <h3 class="principle-title">O lugar também orienta o projeto</h3>
+      <p class="principle-text">
+        A implantação, a orientação solar, os ventos e as características do terreno fazem parte das primeiras decisões. Estudamos essas condições para aproveitar os recursos naturais e encontrar soluções adequadas a cada espaço.
+      </p>
+    </article>
+
+    <article class="principle-card" data-spotlight>
+      <div class="principle-index">03 / Materialidade</div>
+      <h3 class="principle-title">Materiais que dão expressão à arquitetura</h3>
+      <p class="principle-text">
+        A escolha dos materiais vai além da aparência. Consideramos texturas, tonalidades, durabilidade e a relação entre os diferentes elementos, buscando composições equilibradas e coerentes com a proposta de cada projeto.
+      </p>
+    </article>
+
+    <article class="principle-card" data-spotlight>
+      <div class="principle-index">04 / Precisão</div>
+      <h3 class="principle-title">O cuidado também está no que não se vê</h3>
+      <p class="principle-text">
+        Por trás de cada solução arquitetônica existe um trabalho de estudo e detalhamento. Desenvolvemos informações técnicas que orientam a execução e permitem que as decisões tomadas em projeto sejam compreendidas na obra.
+      </p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .principle-card {
+    background: var(--surface-dark-2);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    position: relative;
+    transition: all var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .principle-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(196, 159, 115, 0.25);
+    background: var(--surface-dark-elevated);
+  }
+
+  .principle-index {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-bronze);
+    margin-bottom: 24px;
+  }
+
+  .principle-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary-dark);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .principle-text {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--text-muted-dark);
+  }
+
+  @media (max-width: 1024px) {
+    .principles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

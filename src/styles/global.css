@@ -1,0 +1,211 @@
+/* ==========================================================================
+   BIA & BERG ARQUITETURA — ESTILOS GLOBAIS E PADRÕES COMPARTILHADOS
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-muted-dark);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* Utilitários Tipográficos */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Efeito de Textura Sutil (Overlay de Grão Arquitetônico) */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Shell Compartilhada de Seção */
+.section-shell {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 120px 32px;
+}
+
+/* Cabeçalho Editorial Compartilhado */
+.section-head-editorial {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 28px;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-bronze);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.section-tag::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent-bronze);
+  opacity: 0.5;
+}
+
+.section-title-large {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--text-primary-dark);
+  line-height: 1.1;
+}
+
+.section-subtitle-editorial {
+  font-size: 0.9375rem;
+  color: var(--text-muted-dark);
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+/* Botões Globais */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--text-primary-light);
+  color: var(--paper-bg);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-primary-light);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 12px 22px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-primary-light);
+  background: rgba(22, 21, 19, 0.04);
+}
+
+/* ==========================================================================
+   SISTEMA DE REVEAL & ANIMAÇÕES (ZERO-DEPENDENCY MOTOR STILLPOINT)
+   ========================================================================== */
+.reveal-trigger,
+.reveal-fade,
+.reveal-para,
+.reveal-img,
+.reveal-seq {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.85s var(--ease-out-cubic), transform 0.85s var(--ease-out-cubic);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal-img {
+  transform: scale(0.97) translateY(20px);
+}
+
+.reveal-trigger.is-revealed,
+.reveal-fade.is-revealed,
+.reveal-para.is-revealed,
+.reveal-seq.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-img.is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Efeito Spotlight Interativo */
+[data-spotlight] {
+  position: relative;
+}
+
+[data-spotlight]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(196, 159, 115, 0.08),
+    transparent 40%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+[data-spotlight]:hover::before {
+  opacity: 1;
+}
+
+/* Responsividade Global da Shell */
+@media (max-width: 768px) {
+  .section-shell {
+    padding: 80px 16px;
+  }
+}
+
+/* Acessibilidade: Movimento Reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal-trigger,
+  .reveal-fade,
+  .reveal-para,
+  .reveal-img,
+  .reveal-seq {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,29 @@
+---
+// index.astro — Composição principal do site autoral Bia & Berg Arquitetura
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ApproachSection from '../components/ApproachSection.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import CaseStudiesSection from '../components/CaseStudiesSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main id="main-content">
+    <HeroSection />
+    <CaseStudiesSection />
+    <AboutSection />
+    <ProjectsSection />
+    <ApproachSection />
+    <ProcessSection />
+    <FAQSection />
+    <ContactSection />
+    <SiteFooter />
+  </main>
+</BaseLayout>

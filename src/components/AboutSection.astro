@@ -1,0 +1,341 @@
+---
+// AboutSection.astro — Seção Quem Somos: Beatriz e Berg
+---
+
+<!-- ==========================================================================
+     SEÇÃO 03 — QUEM SOMOS: BIA E BERG (HUMANIZAÇÃO E TRANSPARÊNCIA)
+     ========================================================================== -->
+<section class="about-section" id="sobre">
+  <div class="section-shell">
+    <div class="about-intro-grid">
+      <div>
+        <div class="section-tag reveal-fade" data-reveal-delay="0.1">O Escritório</div>
+        <h2 class="about-lead-text reveal-trigger" data-reveal-delay="0.2">
+          Conduzido a quatro mãos: entre a liberdade de imaginar e a precisão de realizar.
+        </h2>
+      </div>
+
+      <div class="about-manifesto-copy reveal-para" data-reveal-delay="0.3">
+        <p>
+          À frente da Ribeiro & Sá Arquitetura, Beatriz e Vandemberg compartilham mais do que a autoria dos projetos. Compartilham o envolvimento com cada etapa, e o cuidado nas decisões.
+        </p>
+        <p>
+          Nosso trabalho é construído a partir do diálogo, da troca de ideias e de um processo criativo desenvolvido em conjunto. Acreditamos que diferentes perspectivas enriquecem as soluções e permitem olhar para cada projeto de maneira mais completa e individual.
+        </p>
+      </div>
+    </div>
+
+    <!-- Apresentação Individual dos Sócios -->
+    <div class="architects-cards-grid" data-reveal-stagger="0.15">
+      <!-- Card Beatriz Ribeiro -->
+      <article class="architect-card" data-spotlight>
+        <div class="architect-photo-frame">
+          <img 
+            src="/assets/portrait-beatriz.webp?v=2" 
+            alt="Beatriz Ribeiro — Sócia Fundadora da Ribeiro & Sá Arquitetura" 
+            class="architect-photo photo-beatriz"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="architect-info">
+          <span class="architect-role-tag">Sócia Fundadora</span>
+          <h3 class="architect-name">Beatriz Ribeiro</h3>
+          <p class="architect-bio">
+            Com um olhar voltado à estética e à composição arquitetônica, dedica-se à criação de espaços em que formas, materiais e detalhes são pensados em harmonia. Sua atuação no processo criativo busca conferir identidade e sensibilidade a cada projeto.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card Vandemberg Sá -->
+      <article class="architect-card" data-spotlight>
+        <div class="architect-photo-frame">
+          <img 
+            src="/assets/portrait-berg.webp?v=2" 
+            alt="Vandemberg Sá — Sócio Fundador da Ribeiro & Sá Arquitetura" 
+            class="architect-photo photo-berg"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="architect-info">
+          <span class="architect-role-tag">Sócio Fundador</span>
+          <h3 class="architect-name">Vandemberg Sá</h3>
+          <p class="architect-bio">
+            Com um olhar voltado às soluções técnicas e construtivas, participa da concepção e do desenvolvimento dos projetos, explorando possibilidades que conciliam criatividade e viabilidade. Sua atuação traz precisão e consistência às decisões que dão forma à arquitetura.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Síntese da Parceria -->
+    <div class="partnership-banner reveal-fade" data-reveal-delay="0.2">
+      <p class="partnership-quote">
+        “Nenhum traço é definitivo sem passar pelo diálogo: o espaço precisa acolher quem vive e ser tecnicamente preciso para quem constrói.”
+      </p>
+      <div class="partnership-seal">
+        <img src="/assets/manograma_cobre.png" alt="" class="partnership-seal-icon" width="16" height="28" />
+        <div class="partnership-stamp">
+          <span class="stamp-founders">Beatriz & Vandemberg</span>
+          <span class="stamp-divider">·</span>
+          <span class="stamp-brand">Ribeiro & Sá Arquitetura</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: var(--surface-dark);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-intro-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    margin-bottom: 80px;
+  }
+
+  .about-lead-text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--text-primary-dark);
+  }
+
+  .about-manifesto-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-muted-dark);
+  }
+
+  /* Cards Individuais dos Arquitetos */
+  .architects-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    margin-bottom: 60px;
+  }
+
+  .architect-card {
+    background: var(--surface-dark-2);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    align-items: center;
+    transition: border-color var(--transition-fast);
+  }
+
+  .architect-card:hover {
+    border-color: rgba(196, 159, 115, 0.3);
+  }
+
+  .architect-photo-frame {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #151311;
+    border: 1px solid var(--border-dark);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .architect-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: grayscale(100%) contrast(1.08);
+    transition: filter var(--transition-base), transform var(--transition-base);
+  }
+
+  .architect-card:hover .architect-photo {
+    filter: grayscale(25%) contrast(1.04);
+    transform: scale(1.02);
+  }
+
+  /* Espaço Reservado / Placeholder Elegante com Instrução */
+  .photo-placeholder-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    background: linear-gradient(135deg, #1C1916, #141210);
+    color: var(--text-subtle-dark);
+    border: 1px dashed rgba(245, 242, 235, 0.15);
+    border-radius: var(--radius-md);
+  }
+
+  .placeholder-icon {
+    font-size: 1.75rem;
+    color: var(--accent-bronze);
+    margin-bottom: 6px;
+    opacity: 0.8;
+  }
+
+  .placeholder-label {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted-dark);
+    line-height: 1.3;
+  }
+
+  .architect-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .architect-role-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-bronze);
+    margin-bottom: 6px;
+  }
+
+  .architect-name {
+    font-family: var(--font-heading);
+    font-size: 1.625rem;
+    font-weight: 600;
+    color: var(--text-primary-dark);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .architect-bio {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--text-muted-dark);
+  }
+
+  /* Box da Dinâmica da Parceria */
+  .partnership-banner {
+    background: linear-gradient(90deg, rgba(36, 32, 27, 0.6), rgba(26, 23, 20, 0.8));
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-md);
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .partnership-quote {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-primary-dark);
+    max-width: 820px;
+  }
+
+  .partnership-seal {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .partnership-seal-icon {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .partnership-stamp {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-bronze);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .stamp-divider {
+    opacity: 0.45;
+  }
+
+  @media (max-width: 1024px) {
+    .about-intro-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .architects-cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .architect-card {
+      grid-template-columns: 1fr;
+      padding: 24px;
+      gap: 20px;
+    }
+
+    .architect-photo-frame {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+    }
+
+    .partnership-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px 20px;
+      gap: 16px;
+    }
+
+    .partnership-seal {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .partnership-seal-icon {
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .partnership-stamp {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+      white-space: normal;
+      font-size: 0.625rem;
+      letter-spacing: 0.12em;
+      line-height: 1.45;
+    }
+
+    .stamp-divider {
+      display: none;
+    }
+  }
+</style>

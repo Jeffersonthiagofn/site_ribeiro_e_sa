@@ -1,0 +1,299 @@
+---
+// SiteHeader.astro — Navegação flutuante Stillpoint com drawer móvel
+---
+
+<!-- ==========================================================================
+     NAVEGAÇÃO FLUTUANTE (ESTRUTURA STILLPOINT COM MINIMALISMO ELYSIAN)
+     ========================================================================== -->
+<header class="nav-wrap" role="banner">
+  <div class="nav-pill">
+    <a href="#hero" class="brand-home" aria-label="Ribeiro & Sá — Estúdio de Arquitetura">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="/assets/manograma_cobre.png" alt="" class="brand-mark-img" width="16" height="26" />
+      </span>
+      <div class="brand-info">
+        <span class="brand-name">Ribeiro & Sá</span>
+        <span class="brand-sub">Arquitetura</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação Principal">
+      <a href="#casos" class="nav-link">Em Detalhe</a>
+      <a href="#sobre" class="nav-link">Quem Somos</a>
+      <a href="#projetos" class="nav-link">Projetos</a>
+      <a href="#abordagem" class="nav-link">Abordagem</a>
+      <a href="#processo" class="nav-link">Processo</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+
+    <a href="#contato" class="nav-cta-btn">
+      <span>Fale Conosco</span>
+      <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+    </a>
+
+    <button type="button" class="mobile-menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-nav">
+      <iconify-icon icon="solar:hamburger-menu-linear" width="20" height="20"></iconify-icon>
+    </button>
+  </div>
+</header>
+
+<!-- Menu Mobile Drawer -->
+<div class="mobile-nav-drawer" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menu móvel">
+  <div class="mobile-drawer-brand">
+    <img src="/assets/logo-completa.png" alt="Ribeiro & Sá Arquitetura" class="mobile-drawer-logo" width="150" height="90" />
+  </div>
+  <div class="mobile-nav-links">
+    <a href="#casos" class="mobile-nav-link">Em Detalhe</a>
+    <a href="#sobre" class="mobile-nav-link">Quem Somos</a>
+    <a href="#projetos" class="mobile-nav-link">Projetos</a>
+    <a href="#abordagem" class="mobile-nav-link">Abordagem</a>
+    <a href="#processo" class="mobile-nav-link">Processo</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="#contato" class="mobile-nav-link">Contato</a>
+  </div>
+  <div class="mobile-nav-contact">
+    <span>Campina Grande / Atendimento Nacional</span>
+    <a href="mailto:contato.ribeiroesa@gmail.com">contato.ribeiroesa@gmail.com</a>
+  </div>
+</div>
+
+<style>
+  .nav-wrap {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    pointer-events: none;
+  }
+
+  .nav-pill {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: rgba(18, 16, 14, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-pill);
+    padding: 8px 10px 8px 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .nav-pill:hover {
+    border-color: rgba(245, 242, 235, 0.16);
+  }
+
+  .brand-home {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(26, 23, 20, 0.95);
+    border: 1px solid rgba(196, 159, 115, 0.35);
+    border-radius: 50%;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .brand-mark-img {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--transition-fast);
+  }
+
+  .brand-home:hover .brand-mark {
+    transform: scale(1.04);
+    border-color: var(--accent-bronze);
+    box-shadow: 0 0 12px rgba(196, 159, 115, 0.25);
+  }
+
+  .brand-home:hover .brand-mark-img {
+    transform: scale(1.08);
+  }
+
+  .brand-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-name {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-primary-dark);
+    line-height: 1.15;
+  }
+
+  .brand-sub {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-bronze);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--text-muted-dark);
+    letter-spacing: 0.01em;
+    padding: 6px 4px;
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary-dark);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--accent-bronze);
+    transition: width var(--transition-fast), left var(--transition-fast);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--text-primary-dark);
+    color: var(--bg-dark);
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: var(--radius-pill);
+    transition: background var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .nav-cta-btn:hover {
+    background: #FFFFFF;
+    transform: translateY(-1px);
+  }
+
+  .nav-cta-btn iconify-icon {
+    font-size: 0.875rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .nav-cta-btn:hover iconify-icon {
+    transform: translate(2px, -2px);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary-dark);
+    background: var(--surface-dark-2);
+    border-radius: 50%;
+    border: 1px solid var(--border-dark);
+  }
+
+  /* Menu Mobile Overlay */
+  .mobile-nav-drawer {
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 16, 14, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 95;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-medium);
+  }
+
+  .mobile-nav-drawer.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-drawer-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .mobile-drawer-logo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-primary-dark);
+    border-bottom: 1px solid var(--border-dark);
+    padding-bottom: 12px;
+  }
+
+  .mobile-nav-contact {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-bronze);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta-btn {
+      display: none;
+    }
+    
+    .mobile-menu-btn {
+      display: flex;
+    }
+  }
+</style>

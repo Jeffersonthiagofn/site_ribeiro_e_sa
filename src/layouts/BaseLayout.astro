@@ -1,0 +1,75 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}
+
+const {
+  title = "Ribeiro & Sá — Arquitetura",
+  description = "Site autoral do escritório Ribeiro & Sá Arquitetura, conduzido por Beatriz Ribeiro e Vandemberg Sá. Projetos com identidade, sensibilidade material e rigor construtivo em Campina Grande e região.",
+  ogTitle = "Ribeiro & Sá — Arquitetura",
+  ogDescription = "Cada história merece sua própria arquitetura. Projetos desenvolvidos por Beatriz Ribeiro e Vandemberg Sá.",
+} = Astro.props;
+
+import '../styles/tokens.css';
+import '../styles/reset.css';
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Open Graph / Meta Compartilhamento -->
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:type" content="website" />
+  
+  <!-- Favicon e Ícones de Aplicativo -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <!-- Ícones Web Components -->
+  <script is:inline src="/assets/iconify-icon.js"></script>
+</head>
+<body>
+  <!-- Textura de Grão Mineral Sutil -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <slot />
+
+  <!-- Inicialização dos Módulos JavaScript da Aplicação -->
+  <script>
+    import { initRevealEngine } from '../scripts/scroll-reveal.js';
+    import { initSpotlight } from '../scripts/spotlight.js';
+    import { initProjectFilters } from '../scripts/project-filter.js';
+    import { initFaqAccordion } from '../scripts/faq.js';
+    import { initMobileMenu } from '../scripts/navigation.js';
+    import { initContactForm } from '../scripts/contact-form.js';
+    import { initStackedCards } from '../scripts/stacked-cards.js';
+
+    function initAll() {
+      initRevealEngine();
+      initSpotlight();
+      initProjectFilters();
+      initFaqAccordion();
+      initMobileMenu();
+      initContactForm();
+      initStackedCards();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAll);
+    } else {
+      initAll();
+    }
+  </script>
+</body>
+</html>

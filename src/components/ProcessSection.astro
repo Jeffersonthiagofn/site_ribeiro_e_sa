@@ -1,0 +1,289 @@
+---
+// ProcessSection.astro — As 6 etapas metodológicas do projeto arquitetônico
+---
+
+<!-- ==========================================================================
+     SEÇÃO 05 — COMO FUNCIONA UM PROJETO (PROCESSO TRANSPARENTE)
+     ========================================================================== -->
+<section class="process-section" id="processo">
+  <div class="section-shell">
+    <header class="section-head-editorial process-head">
+      <div>
+        <div class="section-tag process-tag reveal-fade" data-reveal-delay="0.1">Etapas de Trabalho</div>
+        <h2 class="section-title-large process-title reveal-trigger" data-reveal-delay="0.2">O Caminho do Projeto</h2>
+      </div>
+      <p class="section-subtitle-editorial process-subtitle reveal-para" data-reveal-delay="0.3">
+        Da primeira conversa aos detalhes que orientam a execução, conheça as etapas que transformam suas ideias em um projeto cuidadosamente desenvolvido.
+      </p>
+    </header>
+
+    <div class="process-steps-list" data-reveal-stagger="0.1">
+      <!-- Etapa 1 -->
+      <div class="process-step-row">
+        <span class="step-number">01</span>
+        <h3 class="step-title">Primeira Conversa & Briefing</h3>
+        <p class="step-desc">
+          O primeiro passo é conhecer você. Conversamos sobre suas necessidades, preferências, rotina e expectativas, além de compreender o investimento previsto e os objetivos do projeto.
+        </p>
+        <span class="step-deliverable">BRIEFING DO PROJETO</span>
+      </div>
+
+      <!-- Etapa 2 -->
+      <div class="process-step-row">
+        <span class="step-number">02</span>
+        <h3 class="step-title">Levantamento & Análise</h3>
+        <p class="step-desc">
+          Estudamos as características do espaço ou terreno, suas medidas, condições naturais e exigências técnicas. Essa análise orienta as primeiras decisões e possibilidades do projeto.
+        </p>
+        <span class="step-deliverable">ANÁLISE DO ESPAÇO</span>
+      </div>
+
+      <!-- Etapa 3 -->
+      <div class="process-step-row">
+        <span class="step-number">03</span>
+        <h3 class="step-title">Estudo Preliminar</h3>
+        <p class="step-desc">
+          É quando as primeiras ideias começam a ganhar forma. Desenvolvemos propostas de organização dos ambientes, volumetria e linguagem arquitetônica, apresentadas por meio de plantas e imagens para avaliação.
+        </p>
+        <span class="step-deliverable">APRESENTAÇÃO INICIAL</span>
+      </div>
+
+      <!-- Etapa 4 -->
+      <div class="process-step-row">
+        <span class="step-number">04</span>
+        <h3 class="step-title">Anteprojeto</h3>
+        <p class="step-desc">
+          Com a proposta definida, aprofundamos as soluções arquitetônicas, ajustando dimensões, materiais e detalhes. Nesta fase, o projeto ganha maior definição e pode ser coordenado com as demais disciplinas técnicas.
+        </p>
+        <span class="step-deliverable">PROJETO CONSOLIDADO</span>
+      </div>
+
+      <!-- Etapa 5 -->
+      <div class="process-step-row">
+        <span class="step-number">05</span>
+        <h3 class="step-title">Projeto Executivo & Detalhamento</h3>
+        <p class="step-desc">
+          Transformamos as definições do projeto em desenhos técnicos, medidas, especificações e detalhamentos que orientam a execução. É nessa etapa que cada decisão é documentada para ser compreendida na obra.
+        </p>
+        <span class="step-deliverable">CADERNO EXECUTIVO</span>
+      </div>
+
+      <!-- Etapa 6 -->
+      <div class="process-step-row">
+        <span class="step-number">06</span>
+        <h3 class="step-title">Acompanhamento Técnico</h3>
+        <p class="step-desc">
+          Quando contratado, realizamos visitas técnicas programadas para esclarecer dúvidas da equipe de execução e garantir que o projeto seja implementado conforme o planejado.
+        </p>
+        <span class="step-deliverable">VISITAS TÉCNICAS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-section {
+    background: var(--paper-bg);
+    color: var(--text-primary-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .process-head {
+    border-bottom-color: var(--border-light);
+  }
+
+  .process-tag {
+    color: var(--accent-terracotta);
+  }
+
+  .process-tag::after {
+    background: var(--accent-terracotta);
+  }
+
+  .process-title {
+    color: var(--text-primary-light);
+  }
+
+  .process-subtitle {
+    color: var(--text-muted-light);
+  }
+
+  .process-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .process-step-row {
+    background: var(--paper-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 32px 40px;
+    display: grid;
+    grid-template-columns: 80px 240px 1fr 200px;
+    align-items: center;
+    gap: 32px;
+    transition: all var(--transition-fast);
+  }
+
+  .process-step-row:hover {
+    border-color: rgba(22, 21, 19, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transform: translateX(4px);
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--accent-terracotta);
+  }
+
+  .step-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary-light);
+    line-height: 1.25;
+  }
+
+  .step-desc {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--text-muted-light);
+  }
+
+  .step-deliverable {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-terracotta);
+    background: var(--paper-surface);
+    padding: 8px 14px;
+    border-radius: var(--radius-pill);
+    text-align: center;
+  }
+
+  @media (max-width: 960px) {
+    .process-steps-list {
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .process-step-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "number deliverable"
+        "title  title"
+        "desc   desc";
+      gap: 12px 16px;
+      padding: 28px 24px;
+      border-radius: var(--radius-lg);
+      background: var(--paper-card);
+      border: 1px solid rgba(22, 21, 19, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      position: relative;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    .process-step-row::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent-terracotta);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .process-step-row:hover::before,
+    .process-step-row:active::before {
+      opacity: 1;
+    }
+
+    .step-number {
+      grid-area: number;
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-number::after {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: var(--accent-terracotta);
+      opacity: 0.35;
+    }
+
+    .step-deliverable {
+      grid-area: deliverable;
+      justify-self: end;
+      font-size: 0.625rem;
+      letter-spacing: 0.12em;
+      padding: 6px 12px;
+      background: rgba(182, 93, 56, 0.08);
+      border: 1px solid rgba(182, 93, 56, 0.22);
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .step-title {
+      grid-area: title;
+      font-size: 1.25rem;
+      line-height: 1.3;
+      margin-top: 4px;
+      margin-bottom: 2px;
+      color: var(--text-primary-light);
+    }
+
+    .step-desc {
+      grid-area: desc;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--text-muted-light);
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .process-steps-list {
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .process-step-row {
+      padding: 22px 18px;
+      gap: 10px 12px;
+      border-radius: var(--radius-md);
+    }
+
+    .step-title {
+      font-size: 1.125rem;
+      line-height: 1.35;
+    }
+
+    .step-desc {
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+
+    .step-deliverable {
+      font-size: 0.5625rem;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+    }
+  }
+</style>

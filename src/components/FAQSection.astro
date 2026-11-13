@@ -1,0 +1,170 @@
+---
+// FAQSection.astro — Perguntas frequentes estruturadas com accordion interativo
+---
+
+<!-- ==========================================================================
+     PERGUNTAS FREQUENTES (FAQ EDITORIAL STILLPOINT)
+     ========================================================================== -->
+<section class="faq-section" id="faq">
+  <div class="section-shell faq-shell">
+    <div class="faq-layout-grid">
+      <div class="faq-side-copy">
+        <div class="section-tag reveal-fade" data-reveal-delay="0.1">Dúvidas Frequentes</div>
+        <h2 class="section-title-large reveal-trigger" data-reveal-delay="0.2">
+          Tudo o que você precisa saber antes de iniciar.
+        </h2>
+        <p class="section-subtitle-editorial reveal-para faq-lead" data-reveal-delay="0.3">
+          Contratar um arquiteto deve ser um processo claro. Reunimos aqui as respostas para as perguntas mais comuns de nossos clientes.
+        </p>
+      </div>
+
+      <div class="faq-list" data-reveal-stagger="0.08">
+        <div class="faq-item is-active">
+          <button type="button" class="faq-question-btn">
+            <span>Qual é o momento ideal para procurar o escritório?</span>
+            <span class="faq-icon-cross">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              O momento mais proveitoso é antes mesmo da compra do lote. Podemos analisar a orientação solar, a topografia, a vegetação existente e as restrições legais para garantir que o terreno realmente comporta a casa que você deseja construir.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>Vocês desenvolvem projetos fora de Campina Grande?</span>
+            <span class="faq-icon-cross">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim. Atendemos projetos em todo o Brasil. Realizamos visitas técnicas estratégicas para o levantamento do local e reuniões de alinhamento com acompanhamento digital contínuo com os clientes e construtoras locais.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>Qual a diferença entre estudo preliminar e projeto executivo?</span>
+            <span class="faq-icon-cross">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              O estudo preliminar estabelece o conceito, os volumes, as plantas e as soluções espaciais. O projeto executivo é o caderno técnico aprofundado — com todas as cotas milimétricas, paginações de piso, detalhamento de esquadrias e memoriais para cotação e execução fiel na obra.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>Como funciona a compatibilização com a engenharia?</span>
+            <span class="faq-icon-cross">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Trabalhamos de forma integrada com os calculistas estruturais e projetistas de instalações desde a fase inicial. Isso evita pilares indesejados no meio de ambientes, incompatibilidades de prumadas e surpresas financeiras durante a obra.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background: var(--surface-dark);
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
+    padding: 100px 32px;
+  }
+
+  .faq-shell {
+    padding: 0;
+  }
+
+  .faq-layout-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+  }
+
+  .faq-side-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .faq-lead {
+    margin-top: 20px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq-item {
+    background: var(--surface-dark-2);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-fast);
+  }
+
+  .faq-item:hover {
+    border-color: rgba(245, 242, 235, 0.16);
+  }
+
+  .faq-question-btn {
+    width: 100%;
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--text-primary-dark);
+    gap: 16px;
+  }
+
+  .faq-icon-cross {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    color: var(--accent-bronze);
+    transition: transform var(--transition-fast);
+    line-height: 1;
+  }
+
+  .faq-item.is-active .faq-icon-cross {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-medium);
+    background: rgba(18, 16, 14, 0.35);
+  }
+
+  .faq-item.is-active .faq-answer {
+    max-height: 300px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 28px 24px;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-muted-dark);
+  }
+
+  @media (max-width: 1024px) {
+    .faq-layout-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>
