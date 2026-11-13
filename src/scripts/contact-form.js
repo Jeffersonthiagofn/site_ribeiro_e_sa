@@ -334,21 +334,56 @@ export function initContactForm() {
       return;
     }
 
-    // Se todos os campos forem válidos, prossegue com o envio existente
+    // Se todos os campos forem válidos, captura os dados e monta o envio via WhatsApp
+    const WHATSAPP_NUMBER = '5583986126156';
+    const nome = nameInput ? nameInput.value.trim() : '';
+    const rawDigits = phoneInput ? phoneInput.value.trim().replace(/\D/g, '') : '';
+    const telefoneFormatado =
+      rawDigits.length === 11
+        ? `(${rawDigits.slice(0, 2)}) ${rawDigits.slice(2, 7)}-${rawDigits.slice(7)}`
+        : rawDigits.length === 10
+          ? `(${rawDigits.slice(0, 2)}) ${rawDigits.slice(2, 6)}-${rawDigits.slice(6)}`
+          : rawDigits;
+    const local = locationInput ? locationInput.value.trim() : '';
+    const tipoLabel =
+      typeSelect && typeSelect.selectedIndex >= 0
+        ? typeSelect.options[typeSelect.selectedIndex].text
+        : '';
+    const mensagem = messageInput ? messageInput.value.trim() : '';
+
+    const textoWhatsApp = [
+      'Olá, Ribeiro & Sá! Preenchi o formulário no site e gostaria de conversar sobre um projeto:',
+      '',
+      `*Nome:* ${nome}`,
+      `*Telefone / WhatsApp:* ${telefoneFormatado}`,
+      `*Cidade / Local:* ${local}`,
+      `*Tipo de Projeto:* ${tipoLabel}`,
+      `*Descrição:* ${mensagem}`,
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(textoWhatsApp)}`;
+
     const submitBtn = form.querySelector('.form-submit-btn');
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Enviando...</span>`;
+      submitBtn.innerHTML = `<span>Redirecionando para o WhatsApp...</span>`;
     }
 
-    // Confirmação de envio bem-sucedido
+    // Abre o WhatsApp diretamente no evento de clique/submit (evita bloqueio de pop-up)
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    // Confirmação visual com botão de acesso direto caso o navegador bloqueie a nova aba
     setTimeout(() => {
       form.innerHTML = `
         <div class="form-feedback-card" style="background: rgba(196, 159, 115, 0.12); border: 1px solid var(--accent-bronze); border-radius: var(--radius-md); padding: 32px 24px; text-align: center;">
-          <p class="form-feedback-title" style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--text-primary-dark); font-weight: 500; margin-bottom: 8px;">Mensagem Enviada com Sucesso</p>
-          <p class="form-feedback-desc" style="font-size: 0.875rem; color: var(--text-muted-dark); line-height: 1.6;">Obrigado pelo contato! A equipe Ribeiro & Sá retornará sua mensagem em até 24 horas úteis.</p>
+          <p class="form-feedback-title" style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--text-primary-dark); font-weight: 500; margin-bottom: 8px;">Solicitação Pronta no WhatsApp</p>
+          <p class="form-feedback-desc" style="font-size: 0.875rem; color: var(--text-muted-dark); line-height: 1.6; margin-bottom: 20px;">Abrimos uma conversa no WhatsApp com os dados preenchidos. Caso a janela não tenha aberto automaticamente, clique no botão abaixo:</p>
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent-bronze); color: #12100E; font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; padding: 12px 24px; border-radius: var(--radius-pill);">
+            <span>Abrir Conversa no WhatsApp</span>
+            <iconify-icon icon="solar:chat-round-line-bold"></iconify-icon>
+          </a>
         </div>
       `;
-    }, 700);
+    }, 300);
   });
 }

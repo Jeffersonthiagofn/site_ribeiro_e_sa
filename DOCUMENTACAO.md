@@ -244,7 +244,7 @@ Todos os scripts ficam em `src/scripts/` e são escritos em **ES Modules** nativ
 
 ### `SiteFooter.astro`
 - **Arquivo**: `src/components/SiteFooter.astro`
-- **Responsabilidade**: Rodapé autoral com monograma `BB`, colunas de navegação, contatos, links para publicações (ArchDaily, LinkedIn, Instagram) e linha de copyright.
+- **Responsabilidade**: Rodapé autoral com monograma `RB`, colunas de navegação, contatos, links para publicações (ArchDaily, LinkedIn, Instagram) e linha de copyright.
 
 ---
 
