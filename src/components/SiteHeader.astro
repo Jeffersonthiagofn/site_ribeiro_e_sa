@@ -57,6 +57,18 @@
   </div>
 </div>
 
+<!-- Botão Flutuante Mobile — Fale Conosco (Minimalismo Stillpoint) -->
+<a
+  href="#contato"
+  class="mobile-floating-cta"
+  id="mobile-floating-cta"
+  aria-label="Fale Conosco — Ir para a seção de contato"
+>
+  <span class="floating-cta-dot" aria-hidden="true"></span>
+  <span class="floating-cta-label">Fale Conosco</span>
+  <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+</a>
+
 <style>
   .nav-wrap {
     position: fixed;
@@ -287,6 +299,11 @@
     gap: 8px;
   }
 
+  /* Botão Flutuante Mobile — Fale Conosco */
+  .mobile-floating-cta {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .nav-links, .nav-cta-btn {
       display: none;
@@ -294,6 +311,62 @@
     
     .mobile-menu-btn {
       display: flex;
+    }
+
+    .mobile-floating-cta {
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      background: rgba(18, 16, 14, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(196, 159, 115, 0.42);
+      border-radius: var(--radius-pill);
+      color: var(--text-primary-dark);
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      box-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      transition:
+        opacity var(--transition-fast),
+        transform var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .mobile-floating-cta:hover,
+    .mobile-floating-cta:active {
+      border-color: var(--accent-bronze);
+      background: rgba(26, 23, 20, 0.96);
+      transform: translateY(-2px);
+    }
+
+    .mobile-floating-cta.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+
+    .floating-cta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-bronze);
+      box-shadow: 0 0 8px rgba(196, 159, 115, 0.65);
+      flex-shrink: 0;
+    }
+
+    .mobile-floating-cta iconify-icon {
+      font-size: 0.9375rem;
+      color: var(--accent-bronze);
     }
   }
 </style>

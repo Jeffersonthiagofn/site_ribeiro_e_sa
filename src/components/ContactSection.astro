@@ -7,7 +7,7 @@
      ========================================================================== -->
 <section class="contact-section" id="contato">
   <div class="contact-card-hero">
-    <div>
+    <div class="contact-intro">
       <div class="section-tag reveal-fade" data-reveal-delay="0.1">Iniciar um Projeto</div>
       <h2 class="contact-title reveal-trigger" data-reveal-delay="0.2">
         Antes de qualquer traço, uma conversa. Vamos dar início ao seu projeto?
@@ -15,45 +15,43 @@
       <p class="contact-lead reveal-para" data-reveal-delay="0.3">
         Queremos conhecer suas ideias, entender suas necessidades e descobrir o que você imagina para o seu espaço. Entre em contato e dê o primeiro passo para desenvolver seu projeto com a gente.
       </p>
-
-      <div class="contact-direct-channels reveal-fade" data-reveal-delay="0.4">
-        <a href="https://wa.me/5583986126156?text=Ol%C3%A1%2C%20Ribeiro%20e%20S%C3%A1%21%20Conheci%20o%20trabalho%20de%20voc%C3%AAs%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20arquitetura.%20Podemos%20conversar%3F" target="_blank" rel="noopener noreferrer" class="direct-channel-link">
-          <span>Conversar via WhatsApp</span> 
-          <iconify-icon icon="solar:chat-round-line-bold"></iconify-icon>
-        </a>
-
-        <a href="mailto:contato.ribeiroesa@gmail.com" class="direct-channel-link">
-          <span>contato.ribeiroesa@gmail.com</span>
-          <iconify-icon icon="solar:letter-linear"></iconify-icon>
-        </a>
-
-          <!-- Instagram de Beatriz -->
-          <a
-            href="https://www.instagram.com/beatrizribeiro.arq/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="direct-channel-link"
-          >
-            <span>Beatriz Ribeiro · @beatrizribeiro.arq</span>
-           <iconify-icon icon="ri:instagram-line"></iconify-icon>
-          </a>
-
-          <!-- Instagram de Vandemberg -->
-        <a
-            href="https://www.instagram.com/arq.vandembergsa/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="direct-channel-link"
-          >
-            <span>Vandemberg · @arq.vandembergsa</span>
-            <iconify-icon icon="ri:instagram-line"></iconify-icon>
-          </a>
-
-
-      </div>
     </div>
 
-    <div>
+    <div class="contact-direct-channels reveal-fade" data-reveal-delay="0.4">
+      <a href="https://wa.me/5583986126156?text=Ol%C3%A1%2C%20Ribeiro%20e%20S%C3%A1%21%20Conheci%20o%20trabalho%20de%20voc%C3%AAs%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20arquitetura.%20Podemos%20conversar%3F" target="_blank" rel="noopener noreferrer" class="direct-channel-link">
+        <span>Conversar via WhatsApp</span> 
+        <iconify-icon icon="solar:chat-round-line-bold"></iconify-icon>
+      </a>
+
+      <a href="mailto:contato.ribeiroesa@gmail.com" class="direct-channel-link">
+        <span>contato.ribeiroesa@gmail.com</span>
+        <iconify-icon icon="solar:letter-linear"></iconify-icon>
+      </a>
+
+      <!-- Instagram de Beatriz -->
+      <a
+        href="https://www.instagram.com/beatrizribeiro.arq/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="direct-channel-link"
+      >
+        <span>Beatriz Ribeiro · @beatrizribeiro.arq</span>
+        <iconify-icon icon="ri:instagram-line"></iconify-icon>
+      </a>
+
+      <!-- Instagram de Vandemberg -->
+      <a
+        href="https://www.instagram.com/arq.vandembergsa/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="direct-channel-link"
+      >
+        <span>Vandemberg · @arq.vandembergsa</span>
+        <iconify-icon icon="ri:instagram-line"></iconify-icon>
+      </a>
+    </div>
+
+    <div class="contact-form-col">
       <form class="contact-form reveal-fade" id="contact-form" data-reveal-delay="0.35" aria-label="Formulário de contato" novalidate>
         <div class="form-group">
           <label for="form-name" class="form-label">Nome Completo</label>
@@ -141,9 +139,26 @@
     padding: 72px 64px;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 64px;
+    grid-template-areas:
+      "intro form"
+      "channels form";
+    column-gap: 64px;
+    row-gap: 0;
+    align-items: start;
     box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
     margin-bottom: 0;
+  }
+
+  .contact-intro {
+    grid-area: intro;
+  }
+
+  .contact-direct-channels {
+    grid-area: channels;
+  }
+
+  .contact-form-col {
+    grid-area: form;
   }
 
   .contact-title {
@@ -324,13 +339,31 @@
   @media (max-width: 1024px) {
     .contact-card-hero {
       grid-template-columns: 1fr;
-      gap: 40px;
+      grid-template-areas:
+        "intro"
+        "form"
+        "channels";
+      gap: 36px;
+    }
+
+    .contact-lead {
+      margin-bottom: 0;
+    }
+
+    .contact-direct-channels {
+      border-top: 1px solid var(--border-dark);
+      padding-top: 28px;
     }
   }
 
   @media (max-width: 768px) {
+    .contact-section {
+      padding: 80px 16px 64px;
+    }
+
     .contact-card-hero {
       padding: 36px 20px;
+      gap: 32px;
     }
   }
 </style>
