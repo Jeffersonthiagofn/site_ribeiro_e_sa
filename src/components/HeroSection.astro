@@ -1,5 +1,6 @@
 ---
 // HeroSection.astro — Seção de abertura com impacto arquitetônico e painel warm paper
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!-- ==========================================================================
@@ -9,7 +10,7 @@
   <div class="hero-card">
     <div class="hero-visual-zone">
       <img
-        src="/assets/fachada-noturna-cobogo.webp"
+        src={`${base}/assets/fachada-noturna-cobogo.webp`}
         alt="Arquitetura autoral contemporânea em concreto aparente e vidro por Ribeiro & Sá Arquitetura"
         class="hero-bg-img"
         loading="eager"
@@ -19,7 +20,7 @@
       <div class="hero-copy">
         <div class="eyebrow-pill reveal-fade" data-reveal-delay="0.1">
           <img
-            src="/assets/monograma-cobre.png"
+            src={`${base}/assets/monograma-cobre.png`}
             alt=""
             class="eyebrow-monogram"
             width="9"
@@ -35,9 +36,7 @@
         </h1>
 
         <p class="hero-subtitle reveal-para" data-reveal-delay="0.35">
-          Acreditamos em uma arquitetura que reconhece suas origens, respeita o
-          lugar e revela a identidade de quem a habita.Cada projeto é uma
-          interpretação singular de histórias, necessidades e formas de viver.
+          Uma arquitetura que respeita o lugar e revela a identidade de quem a habita.
         </p>
       </div>
     </div>
@@ -322,12 +321,45 @@
     }
 
     .hero-visual-zone {
-      min-height: 65vh;
-      padding: 24px;
+      min-height: 58vh;
+      padding: 110px 20px 24px;
+    }
+
+    .eyebrow-pill {
+      font-size: 0.625rem;
+      letter-spacing: 0.14em;
+      padding: 4px 11px;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-monogram {
+      height: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.75rem, 6.2vw, 2.25rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.875rem;
+      line-height: 1.55;
     }
 
     .hero-bottom-panel {
-      padding: 36px 20px;
+      padding: 28px 20px;
+    }
+
+    .panel-headline {
+      font-size: clamp(1.375rem, 5.2vw, 1.75rem);
+      margin-bottom: 14px;
+    }
+
+    .panel-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
 
     .panel-mini-cards {

@@ -1,5 +1,8 @@
 ---
 // CaseStudiesSection.astro — Estudos monográficos com sticky stacking cards
+import CaseStudyModal from './CaseStudyModal.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!-- ==========================================================================
@@ -41,12 +44,16 @@
 
           <div class="card-specs-row">
             <div class="card-spec-item">Ano: <strong>2026</strong></div>
+            <button type="button" class="card-mobile-cta">
+              <span>Ver detalhes do projeto</span>
+              <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+            </button>
           </div>
         </div>
 
         <div class="card-img-wrap">
           <img 
-            src="/assets/fachada-arcos-pedra-tropical.webp" 
+            src={`${base}/assets/fachada-arcos-pedra-tropical.webp`} 
             alt="Fachada da Residência Horizonte com arcos, pedra natural e paisagismo tropical" 
             class="card-img"
             loading="lazy"
@@ -80,12 +87,16 @@
 
           <div class="card-specs-row">
             <div class="card-spec-item">Ano: <strong>2026</strong></div>
+            <button type="button" class="card-mobile-cta">
+              <span>Ver detalhes do projeto</span>
+              <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+            </button>
           </div>
         </div>
 
         <div class="card-img-wrap">
           <img 
-            src="/assets/fachada-entardecer-portico-brise.webp" 
+            src={`${base}/assets/fachada-entardecer-portico-brise.webp`} 
             alt="Fachada da Residência Rumo ao entardecer com pórtico curvo e painéis vazados" 
             class="card-img"
             loading="lazy"
@@ -119,12 +130,16 @@
 
           <div class="card-specs-row">
             <div class="card-spec-item">Ano: <strong>2026</strong></div>
+            <button type="button" class="card-mobile-cta">
+              <span>Ver detalhes do projeto</span>
+              <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+            </button>
           </div>
         </div>
 
         <div class="card-img-wrap">
           <img 
-            src="/assets/fachada-noturna-cobogo.webp" 
+            src={`${base}/assets/fachada-noturna-cobogo.webp`} 
             alt="Fachada noturna da Morada Vértice em pedra natural, concreto e cobogós iluminados" 
             class="card-img"
             loading="lazy"
@@ -158,12 +173,16 @@
 
           <div class="card-specs-row">
             <div class="card-spec-item">Ano: <strong>2026</strong></div>
+            <button type="button" class="card-mobile-cta">
+              <span>Ver detalhes do projeto</span>
+              <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+            </button>
           </div>
         </div>
 
         <div class="card-img-wrap">
           <img 
-            src="/assets/fachada-morada-recanto.webp" 
+            src={`${base}/assets/fachada-morada-recanto.webp`} 
             alt="Fachada da Morada Recanto combinando pedra natural, madeira e jardim suspenso" 
             class="card-img"
             loading="lazy"
@@ -197,12 +216,16 @@
 
           <div class="card-specs-row">
             <div class="card-spec-item">Ano: <strong>2026</strong></div>
+            <button type="button" class="card-mobile-cta">
+              <span>Ver detalhes do projeto</span>
+              <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+            </button>
           </div>
         </div>
 
         <div class="card-img-wrap">
           <img 
-            src="/assets/fachada-terracota-madeira-cobogo.webp" 
+            src={`${base}/assets/fachada-terracota-madeira-cobogo.webp`} 
             alt="Fachada da Morada Terra com pórtico em textura terracota, madeira e painel de cobogós" 
             class="card-img card-img-terra"
             loading="lazy"
@@ -214,6 +237,8 @@
 
   </div>
 </section>
+
+<CaseStudyModal />
 
 <style>
   .stack-section {
@@ -352,7 +377,9 @@
 
   .card-specs-row {
     display: flex;
-    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     border-top: 1px solid var(--border-dark);
     padding-top: 20px;
     font-family: var(--font-mono);
@@ -363,6 +390,10 @@
   .card-spec-item strong {
     color: var(--text-primary-dark);
     font-weight: 500;
+  }
+
+  .card-mobile-cta {
+    display: none;
   }
 
   .card-img-wrap {
@@ -395,13 +426,12 @@
       margin-bottom: 48px;
     }
 
-    /* Em telas menores (tablet/mobile), desativa o empilhamento sticky que encobria
-       o texto dos cards 1 a 4 e exibe cada projeto completo com rolagem natural */
+    /* Cards compactos interativos com empilhamento sticky preservado no mobile */
     .card-item {
-      position: relative;
-      top: auto;
+      position: sticky;
+      top: 88px;
       min-height: auto;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .card-item:last-child {
@@ -412,6 +442,7 @@
       grid-template-columns: 1fr;
       min-height: auto;
       border-radius: var(--radius-lg);
+      cursor: pointer;
     }
 
     /* Proporção horizontal arquitetônica para que as fachadas das casas fiquem
@@ -435,7 +466,43 @@
     }
 
     .card-content {
-      padding: 32px 28px;
+      padding: 28px 24px;
+    }
+
+    /* Oculta as descrições longas dentro do card no mobile (abertas ao clicar) */
+    .card-narrative {
+      display: none;
+    }
+
+    .card-location {
+      margin-bottom: 20px;
+      min-height: 2.6em;
+    }
+
+    .card-mobile-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(196, 159, 115, 0.35);
+      background: rgba(196, 159, 115, 0.08);
+      color: var(--accent-bronze);
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .card-inner:hover .card-mobile-cta,
+    .card-mobile-cta:active {
+      border-color: var(--accent-bronze);
+      background: rgba(196, 159, 115, 0.16);
+      transform: translateX(2px);
     }
   }
 
@@ -445,7 +512,8 @@
     }
 
     .card-item {
-      margin-bottom: 28px;
+      top: 84px;
+      margin-bottom: 24px;
     }
 
     .card-img-wrap {
@@ -453,36 +521,38 @@
     }
 
     .card-content {
-      padding: 24px 20px;
+      padding: 20px 18px 22px;
     }
 
     .card-top-meta {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .card-index {
-      font-size: 1.5rem;
+      font-size: 1.375rem;
     }
 
     .card-title {
-      font-size: clamp(1.4rem, 5.5vw, 1.75rem);
+      font-size: clamp(1.35rem, 5.5vw, 1.65rem);
       margin-bottom: 6px;
     }
 
     .card-location {
       font-size: 0.75rem;
-      margin-bottom: 20px;
-    }
-
-    .card-narrative {
-      font-size: 0.875rem;
-      line-height: 1.65;
-      gap: 14px;
-      margin-bottom: 22px;
+      line-height: 1.45;
+      margin-bottom: 16px;
+      min-height: 2.9em;
     }
 
     .card-specs-row {
-      padding-top: 16px;
+      padding-top: 14px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .card-mobile-cta {
+      font-size: 0.625rem;
+      padding: 7px 12px;
     }
   }
 

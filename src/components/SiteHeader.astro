@@ -1,5 +1,6 @@
 ---
 // SiteHeader.astro — Navegação flutuante Stillpoint com drawer móvel
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!-- ==========================================================================
@@ -9,7 +10,7 @@
   <div class="nav-pill">
     <a href="#hero" class="brand-home" aria-label="Ribeiro & Sá — Estúdio de Arquitetura">
       <span class="brand-mark" aria-hidden="true">
-        <img src="/assets/monograma-cobre.png" alt="" class="brand-mark-img" width="16" height="26" />
+        <img src={`${base}/assets/monograma-cobre.png`} alt="" class="brand-mark-img" width="16" height="26" />
       </span>
       <div class="brand-info">
         <span class="brand-name">Ribeiro & Sá</span>
@@ -40,7 +41,7 @@
 <!-- Menu Mobile Drawer -->
 <div class="mobile-nav-drawer" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menu móvel">
   <div class="mobile-drawer-brand">
-    <img src="/assets/logotipo-completo.png" alt="Ribeiro & Sá Arquitetura" class="mobile-drawer-logo" width="150" height="90" />
+    <img src={`${base}/assets/logotipo-completo.png`} alt="Ribeiro & Sá Arquitetura" class="mobile-drawer-logo" width="150" height="90" />
   </div>
   <div class="mobile-nav-links">
     <a href="#casos" class="mobile-nav-link">Em Detalhe</a>

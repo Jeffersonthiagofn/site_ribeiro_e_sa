@@ -1,5 +1,6 @@
 ---
 // SiteFooter.astro — Rodapé arquitetônico autoral e créditos institucionais
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!-- Rodapé Arquitetônico Discreto -->
@@ -8,7 +9,7 @@
     <div class="footer-brand-col">
       <a href="#hero" class="footer-logo-link" aria-label="Ribeiro & Sá Arquitetura - Voltar ao início">
         <img 
-          src="/assets/logotipo-completo.png" 
+          src={`${base}/assets/logotipo-completo.png`} 
           alt="Ribeiro & Sá Arquitetura" 
           class="footer-brand-logo" 
           width="190" 

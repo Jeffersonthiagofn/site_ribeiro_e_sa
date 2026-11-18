@@ -1,0 +1,358 @@
+---
+// CaseStudyModal.astro — Modal editorial para visualização completa dos projetos no mobile
+---
+
+<div
+  class="case-modal"
+  id="case-study-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="case-modal-title"
+  aria-hidden="true"
+>
+  <div class="case-modal-backdrop" data-modal-close></div>
+
+  <div class="case-modal-dialog" role="document">
+    <div class="case-modal-topbar">
+      <div class="case-modal-topbar-meta">
+        <span class="case-modal-index" id="case-modal-index">01</span>
+        <span class="case-modal-tag">Em Detalhe</span>
+      </div>
+
+      <button
+        type="button"
+        class="case-modal-close"
+        id="case-modal-close"
+        aria-label="Fechar detalhes do projeto"
+        data-modal-close
+      >
+        <iconify-icon icon="solar:close-circle-linear" width="24" height="24"></iconify-icon>
+      </button>
+    </div>
+
+    <div class="case-modal-body" id="case-modal-scroll">
+      <div class="case-modal-img-wrap">
+        <img
+          src=""
+          alt=""
+          class="case-modal-img"
+          id="case-modal-img"
+        />
+      </div>
+
+      <div class="case-modal-content">
+        <div class="case-modal-header">
+          <h3 class="case-modal-title" id="case-modal-title"></h3>
+          <p class="case-modal-location" id="case-modal-location"></p>
+          <div class="case-modal-specs" id="case-modal-specs"></div>
+        </div>
+
+        <div class="case-modal-narrative" id="case-modal-narrative"></div>
+
+        <div class="case-modal-actions">
+          <a
+            href="#contato"
+            class="case-modal-contact-btn"
+            id="case-modal-contact-btn"
+          >
+            <span>Conversar sobre um Projeto</span>
+            <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-modal-nav">
+      <button
+        type="button"
+        class="case-modal-nav-btn"
+        id="case-modal-prev"
+        aria-label="Projeto anterior"
+      >
+        <iconify-icon icon="solar:arrow-left-linear"></iconify-icon>
+        <span>Anterior</span>
+      </button>
+
+      <span class="case-modal-counter" id="case-modal-counter">01 / 05</span>
+
+      <button
+        type="button"
+        class="case-modal-nav-btn"
+        id="case-modal-next"
+        aria-label="Próximo projeto"
+      >
+        <span>Próximo</span>
+        <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .case-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out-cubic);
+  }
+
+  .case-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .case-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 9, 8, 0.84);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .case-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 680px;
+    max-height: 92dvh;
+    background: var(--surface-dark-2);
+    border: 1px solid rgba(196, 159, 115, 0.25);
+    border-bottom: none;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 -20px 80px rgba(0, 0, 0, 0.75);
+    transform: translateY(28px);
+    transition: transform 0.35s var(--ease-out-cubic);
+  }
+
+  .case-modal.is-open .case-modal-dialog {
+    transform: translateY(0);
+  }
+
+  .case-modal-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: rgba(26, 23, 20, 0.96);
+    border-bottom: 1px solid var(--border-dark);
+    flex-shrink: 0;
+  }
+
+  .case-modal-topbar-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .case-modal-index {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--accent-bronze);
+    line-height: 1;
+  }
+
+  .case-modal-tag {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-subtle-dark);
+    border: 1px solid var(--border-dark);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+  }
+
+  .case-modal-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: var(--text-primary-dark);
+    background: rgba(245, 242, 235, 0.05);
+    border: 1px solid var(--border-dark);
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .case-modal-close:hover,
+  .case-modal-close:active {
+    border-color: var(--accent-bronze);
+    color: var(--accent-bronze);
+    background: rgba(196, 159, 115, 0.1);
+  }
+
+  .case-modal-body {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+  }
+
+  .case-modal-img-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #171411;
+    overflow: hidden;
+  }
+
+  .case-modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .case-modal-img.card-img-terra {
+    object-position: center 42%;
+  }
+
+  .case-modal-content {
+    padding: 24px 20px 28px;
+  }
+
+  .case-modal-header {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .case-modal-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-primary-dark);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .case-modal-location {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted-dark);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .case-modal-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-subtle-dark);
+  }
+
+  .case-modal-specs :global(strong) {
+    color: var(--text-primary-dark);
+    font-weight: 500;
+  }
+
+  .case-modal-narrative {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-muted-dark);
+    margin-bottom: 28px;
+  }
+
+  .case-modal-narrative :global(.narrative-block) {
+    border-left: 2px solid var(--accent-bronze);
+    padding-left: 16px;
+  }
+
+  .case-modal-narrative :global(.narrative-label) {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-bronze);
+    margin-bottom: 4px;
+  }
+
+  .case-modal-actions {
+    display: flex;
+  }
+
+  .case-modal-contact-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-bronze);
+    color: #12100E;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .case-modal-contact-btn:hover,
+  .case-modal-contact-btn:active {
+    background: #D4B088;
+    transform: translateY(-1px);
+  }
+
+  .case-modal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px calc(14px + env(safe-area-inset-bottom, 0px));
+    background: rgba(18, 16, 14, 0.96);
+    border-top: 1px solid var(--border-dark);
+    flex-shrink: 0;
+  }
+
+  .case-modal-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-primary-dark);
+    padding: 8px 12px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-dark);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .case-modal-nav-btn:hover,
+  .case-modal-nav-btn:active {
+    border-color: var(--accent-bronze);
+    color: var(--accent-bronze);
+  }
+
+  .case-modal-counter {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    color: var(--text-subtle-dark);
+  }
+
+  @media (min-width: 1025px) {
+    .case-modal {
+      display: none !important;
+    }
+  }
+</style>
