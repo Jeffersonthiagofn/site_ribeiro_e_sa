@@ -8,7 +8,7 @@ interface ProjectImage {
 
 interface InteriorProject {
   id: string;
-  category: 'convivio' | 'integrados';
+  category: 'convivio' | 'integrados' | 'intimos';
   title: string;
   meta: string;
   description: string;
@@ -86,6 +86,94 @@ const interiorProjects: InteriorProject[] = [
       },
     ],
   },
+  {
+    id: '04',
+    category: 'intimos',
+    title: 'Suíte Infantil Palhinha',
+    meta: 'Interiores · Quarto Infantil & Amamentação',
+    description:
+      'Desenhado para acolher os primeiros anos com serenidade tátil, este quarto infantil combina painéis arqueados em madeira e palhinha natural em ritmo escalonado com o berço oval em laca clara e nogueira. A composição em tecidos bouclé, couro caramelo, fibras naturais e cortinas translúcidas valoriza a luz suave, criando um refúgio delicado e atemporal.',
+    ctaLabel: 'Consultar Projeto de Interiores',
+    ctaHref: '#contato',
+    images: [
+      {
+        src: `${base}/assets/interiores-quarto-bebe-berco.webp`,
+        alt: 'Suíte Infantil Palhinha — Berço oval em laca clara e nogueira junto aos painéis arqueados em palhinha natural e pendentes esculturais',
+        badge: '04 · Berço & Iluminação',
+      },
+      {
+        src: `${base}/assets/interiores-quarto-bebe-conjunto.webp`,
+        alt: 'Suíte Infantil Palhinha — Vista completa com poltrona de amamentação em bouclé, tapetes sobrepostos em fibra natural e painel em palhinha',
+        badge: '04 · Painel & Amamentação',
+      },
+    ],
+  },
+  {
+    id: '05',
+    category: 'intimos',
+    title: 'Suíte Jardim & Pátio',
+    meta: 'Interiores · Dormitório & Jardim Íntimo',
+    description:
+      'A suíte se estende diretamente para um pátio íntimo a céu aberto, transformando a pausa em parte da arquitetura. No interior, o painel envolvente em madeira nogueira, o teto em cimento queimado e a cama baixa de linhas puras constroem uma atmosfera silenciosa que dialoga com a vegetação tropical, as pisadas de concreto e a rede sob paredes em verde-sálvia.',
+    ctaLabel: 'Consultar Projeto de Interiores',
+    ctaHref: '#contato',
+    images: [
+      {
+        src: `${base}/assets/interiores-suite-jardim-transicao.webp`,
+        alt: 'Suíte Jardim & Pátio — Abertura entre o painel em madeira nogueira do dormitório e o pátio externo com rede e vegetação tropical',
+        badge: '05 · Transição & Jardim',
+      },
+      {
+        src: `${base}/assets/interiores-suite-jardim-dormitorio.webp`,
+        alt: 'Suíte Jardim & Pátio — Dormitório com cama baixa em linho neutro, painel em madeira nogueira, cimento queimado e estante lateral',
+        badge: '05 · Dormitório & Marcenaria',
+      },
+    ],
+  },
+  {
+    id: '06',
+    category: 'convivio',
+    title: 'Lounge Cromático Bordô',
+    meta: 'Interiores · Sala de Estar & Convívio',
+    description:
+      'Marcado pela imersão cromática em tom bordô que envolve paredes, painel ripado e forro, este estar explora o contraste entre intensidade e leveza. O piso em granilite claro, o sofá curvo em bouclé off-white e o tapete geométrico em degradê ancoram a composição, suavizada pela luz natural filtrada por cortinas verticais e pelos grandes vasos em terracota.',
+    ctaLabel: 'Consultar Projeto de Interiores',
+    ctaHref: '#contato',
+    images: [
+      {
+        src: `${base}/assets/interiores-lounge-bordo-composicao.webp`,
+        alt: 'Lounge Cromático Bordô — Sala de estar com paredes e forro em tom bordô, painel ripado, piso em granilite e sofá curvo off-white',
+        badge: '06 · Estar & Arte',
+      },
+      {
+        src: `${base}/assets/interiores-lounge-bordo-estar.webp`,
+        alt: 'Lounge Cromático Bordô — Detalhe do sofá curvo em bouclé, mesa de centro orgânica e vasos em terracota junto às cortinas filtrantes',
+        badge: '06 · Curvas & Vegetação',
+      },
+    ],
+  },
+  {
+    id: '07',
+    category: 'intimos',
+    title: 'Home Office Botânico',
+    meta: 'Interiores · Estúdio & Espaço de Trabalho',
+    description:
+      'Concebido para unir concentração e bem-estar, o espaço de trabalho articula marcenaria ripada em madeira clara, bancada linear contínua e ampla abertura para a luz natural do jardim. O tapete circular em nuances orgânicas de verde e a poltrona escultural em madeira curvada aquecem a base mineral, compondo um ambiente sereno e funcional para a rotina criativa.',
+    ctaLabel: 'Consultar Projeto de Interiores',
+    ctaHref: '#contato',
+    images: [
+      {
+        src: `${base}/assets/interiores-home-office-bancada.webp`,
+        alt: 'Home Office Botânico — Bancada contínua em madeira, painel ripado, poltrona em madeira curvada e tapete circular em tons de verde',
+        badge: '07 · Bancada & Marcenaria',
+      },
+      {
+        src: `${base}/assets/interiores-home-office-conjunto.webp`,
+        alt: 'Home Office Botânico — Perspectiva ampla do estúdio de trabalho integrado ao jardim externo através de esquadria piso-teto',
+        badge: '07 · Estúdio & Paisagem',
+      },
+    ],
+  },
 ];
 ---
 
@@ -124,6 +212,9 @@ const interiorProjects: InteriorProject[] = [
     >
     <button type="button" class="filter-btn" data-filter="convivio"
       >Estar & Convívio</button
+    >
+    <button type="button" class="filter-btn" data-filter="intimos"
+      >Suítes & Home Office</button
     >
   </div>
 
